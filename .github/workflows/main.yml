@@ -18,7 +18,7 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: build-artifacts
-        path: dist/
+        path: dist/gettin-jacked
 
   deploy:
     name: Deploy
@@ -36,4 +36,4 @@ jobs:
         APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_APPLICATION_CREDENTIALS }}
         CLI: gsutil
       with:
-        args: cp -r build-artifacts gs://gettin-jacked.com
+        args: cp -r build-artifacts/**/* gs://gettin-jacked.com
