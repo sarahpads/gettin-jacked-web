@@ -22,6 +22,8 @@ jobs:
 
   deploy:
     name: Deploy
+    if: success()
+    needs: build
     runs-on: ubuntu-latest
     
     steps:
