@@ -36,4 +36,4 @@ jobs:
         APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_APPLICATION_CREDENTIALS }}
         CLI: gsutil
       with:
-        args: cp -r build-artifacts gs://my-bucket
+        args: cp -r build-artifacts gs://gettin-jacked.com
