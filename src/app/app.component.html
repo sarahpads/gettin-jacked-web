@@ -1,5 +1,14 @@
-<div *ngIf="data | async; let user">
-  <span>{{ user.name }}</span>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav mode="over" #sidenav role="navigation">
+  </mat-sidenav>
 
-<router-outlet></router-outlet>
+  <mat-sidenav-content>
+    <app-side-nav></app-side-nav>
+    <button (click)="sidenav.toggle()">Menu</button>
+    <div *ngIf="data | async; let user">
+      <span>{{ user.name }}</span>
+    </div>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
