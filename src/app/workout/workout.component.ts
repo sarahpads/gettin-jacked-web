@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MdcDialog } from '@angular-mdc/web';
+
+import { ExerciseComponent } from './exercise/exercise.component';
 
 @Component({
   selector: 'app-workout',
@@ -6,10 +9,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./workout.component.scss']
 })
 export class WorkoutComponent implements OnInit {
+  @ViewChild('list') public list;
+  @ViewChild('menu') public menu;
 
-  constructor() { }
+  public exercises = [
+    {
+      id: 1,
+      label: 'Row, Seated Cable',
+      muscleGroup: 'back',
+      icon: 'fitness_center',
+      weight: '9',
+      equipment: 'smith',
+      status: '9 plates • 2/4 sets',
+      sets: [
+        { reps: 10 },
+        { reps: 8 },
+        { reps: 6 }
+      ]
+    }
+  ]
+
+  constructor(
+    private dialog: MdcDialog
+  ) { }
 
   ngOnInit(): void {
   }
 
+  public onExerciseSelect(event) {
+    const selectedItem = this.exercises.find((exercise) => {
+      return exercise.id === event.option.value;
+    });
+
+
+    const dialogRef = this.dialog.open(ExerciseComponent, {
+      escapeToClose: false,
+      clickOutsideToClose: false,
+      buttonsStacked: false,
+      data: { exercise: selectedItem }
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+    });
+
+    console.log(selectedItem);
+  }
 }

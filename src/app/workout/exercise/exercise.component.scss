@@ -1,0 +1,22 @@
+@use "sass:map";
+@use '@material/dialog/_index' as dialog;
+@use '@material/top-app-bar/_index' as app-bar;
+@use '@material/theme/color-palette' as material-color;
+@use '@material/theme/variables' as material-variables;
+
+$text-colors: map.get(material-variables.$text-colors, dark);
+
+.exercise {
+  $min-width: 100%;
+  $max-width: 100%;
+  $margin: 0px;
+
+  border-radius: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  @include app-bar.ink-color(map.get($text-colors, primary));
+  @include app-bar.fill-color(material-color.$grey-50);
+}

@@ -1,0 +1,7 @@
+@use '@material/list/_index' as list;
+@use '@material/theme/color-palette' as material-color;
+
+.demo-list--custom {
+  @include list.item-graphic-fill-color(material-color.$pink-400);
+  @include list.item-graphic-ink-color(material-color.$pink-50);
+}

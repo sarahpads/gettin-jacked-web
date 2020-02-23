@@ -1,1 +1,19 @@
-<p>workout works!</p>
+<mdc-list-group>
+  <mdc-list
+    class="demo-list--custom"
+    twoLine
+    avatar
+    #list
+    [singleSelection]="true"
+    (selectionChange)="onExerciseSelect($event)">
+    <mdc-list-item
+      *ngFor="let exercise of exercises"
+      [value]="exercise.id">
+      <mdc-icon mdcListItemGraphic>{{ exercise.icon }}</mdc-icon>
+
+      <mdc-list-item-text [secondaryText]="exercise.status">{{ exercise.label }}</mdc-list-item-text>
+
+      <mdc-icon mdcListItemMeta>edit</mdc-icon>
+    </mdc-list-item>
+  </mdc-list>
+</mdc-list-group>
