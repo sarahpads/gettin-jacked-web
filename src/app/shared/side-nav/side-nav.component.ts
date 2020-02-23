@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-side-nav',
@@ -8,22 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class SideNavComponent implements OnInit {
   public items = [
     {
-      title: 'Dashboard',
+      label: 'Dashboard',
       icon: 'home',
       link: '/'
     },
     {
-      title: 'Workouts',
+      label: 'Workouts',
       icon: 'fitness_center',
       link: '/workouts'
     },
     {
-      title: 'Goals',
+      label: 'Goals',
       icon: 'star',
       link: '/goals'
     },
     {
-      title: 'Exercises',
+      label: 'Exercises',
       icon: 'style',
       link: '/exercises'
     }

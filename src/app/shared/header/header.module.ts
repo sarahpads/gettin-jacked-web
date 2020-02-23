@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MdcIconModule } from '@angular-mdc/web';
+import { MdcTopAppBarModule } from '@angular-mdc/web';
 
 import { HeaderComponent } from './header.component';
 
 @NgModule({
   declarations: [HeaderComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MdcIconModule,
+    MdcTopAppBarModule
   ],
   exports: [HeaderComponent]
 })

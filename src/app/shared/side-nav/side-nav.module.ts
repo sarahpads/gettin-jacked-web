@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MdcDrawerModule } from '@angular-mdc/web';
+import { MdcListModule } from '@angular-mdc/web';
+import { MdcIconModule } from '@angular-mdc/web';
 
 import { SideNavComponent } from './side-nav.component';
 
@@ -10,8 +11,9 @@ import { SideNavComponent } from './side-nav.component';
   declarations: [SideNavComponent],
   imports: [
     CommonModule,
-    MatListModule,
-    MatIconModule,
+    MdcIconModule,
+    MdcDrawerModule,
+    MdcListModule,
     RouterModule
   ],
   exports: [SideNavComponent]

@@ -1,6 +1,19 @@
-<mat-nav-list [disableRipple]="true">
-  <a mat-list-item *ngFor="let item of items" [routerLink]="item.link" routerLinkActive="-active">
-    <mat-icon mat-list-icon>{{ item.icon }}</mat-icon>
-    <span mat-line>{{ item.title }}</span>
-  </a>
-</mat-nav-list>
+<mdc-drawer drawer="modal">
+  <mdc-drawer-header title="Drawer Title" subtitle="Subtitle"></mdc-drawer-header>
+
+  <mdc-drawer-content>
+    <mdc-list>
+      <a
+        mdc-list-item
+        routerLinkActive
+        #rla="routerLinkActive"
+        *ngFor="let item of items"
+        [routerLink]="item.link"
+        [activated]="rla.isActive"
+      >
+        <mdc-icon mdcListItemGraphic>{{ item.icon }}</mdc-icon>
+        {{ item.label }}
+      </a>
+    </mdc-list>
+  </mdc-drawer-content>
+</mdc-drawer>
