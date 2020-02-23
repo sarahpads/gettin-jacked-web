@@ -18,13 +18,13 @@ export class WorkoutComponent implements OnInit {
       label: 'Row, Seated Cable',
       muscleGroup: 'back',
       icon: 'fitness_center',
-      weight: '9',
+      targetWeight: '9',
       equipment: 'smith',
       status: '9 plates • 2/4 sets',
       sets: [
-        { reps: 10 },
-        { reps: 8 },
-        { reps: 6 }
+        { reps: 10, weight: '9' },
+        { reps: 8, weight: '9' },
+        { reps: 6, weight: '9' }
       ]
     }
   ]

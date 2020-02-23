@@ -4,18 +4,106 @@
 
       <mdc-top-app-bar class="header" dense>
         <mdc-top-app-bar-row>
-          <mdc-top-app-bar-section align="start" title="Exercise Details">
-            <button mdcTopAppBarNavIcon>
-              <mdc-icon>close</mdc-icon>
+          <mdc-top-app-bar-section align="start" [title]="exercise.label">
+            <button mdcTopAppBarNavIcon class="button" (click)="onCloseClick()">
+              <mdc-icon>check</mdc-icon>
             </button>
           </mdc-top-app-bar-section>
 
 
           <mdc-top-app-bar-section align="end">
-            <mdc-icon mdcTopAppBarActionItem>more_vert</mdc-icon>
+            <div mdcMenuSurfaceAnchor #demoAnchor>
+              <button mdcTopAppBarNavIcon class="button" (click)="demo.open = !demo.open">
+                <mdc-icon>more_vert</mdc-icon>
+              </button>
+
+              <mdc-menu #demo [anchorElement]="demoAnchor" (selected)="onMenuSelect()">
+                <mdc-list>
+                  <mdc-list-item>
+                    <mdc-icon mdcListItemGraphic class="icon">delete</mdc-icon>
+                    Remove
+                  </mdc-list-item>
+                </mdc-list>
+              </mdc-menu>
+            </div>
           </mdc-top-app-bar-section>
         </mdc-top-app-bar-row>
       </mdc-top-app-bar>
+
+      <form class="form">
+        <div class="form-group">
+          <h2 mdcSubtitle1>Exercise Details</h2>
+          <mdc-select
+            class="select"
+            placeholder="Equipment"
+            name="equipment"
+            [outlined]="true">
+
+            <mdc-menu class="menu">
+              <mdc-list>
+                <mdc-list-item value="apple">Barbell</mdc-list-item>
+                <mdc-list-item value="orange">Dumbbell</mdc-list-item>
+                <mdc-list-item value="banana">Smith Machine</mdc-list-item>
+                <mdc-list-item disabled value="mango">Plate</mdc-list-item>
+              </mdc-list>
+            </mdc-menu>
+          </mdc-select>
+
+          <mdc-select
+            placeholder="Cable Height"
+            name="cable-height"
+            [outlined]="true">
+
+            <mdc-menu class="menu">
+              <mdc-list>
+                <mdc-list-item value="apple">1</mdc-list-item>
+                <mdc-list-item value="orange">2</mdc-list-item>
+                <mdc-list-item value="banana">3</mdc-list-item>
+                <mdc-list-item disabled value="mango">4</mdc-list-item>
+              </mdc-list>
+            </mdc-menu>
+          </mdc-select>
+        </div>
+
+        <div class="form-group">
+          <div *ngFor="let set of exercise.sets; index as i">
+            <span mdcSubtitle1>Set {{ i + 1 }}</span>
+
+            <div class="set">
+              <div class="set-input"><mdc-text-field placeholder="Reps" class="input"></mdc-text-field></div>
+              <div class="set-input"><mdc-text-field placeholder="Weight" class="input"></mdc-text-field></div>
+            </div>
+          </div>
+          <!--
+          <mdc-data-table class="data-table">
+            <table mdcDataTableTable>
+              <thead>
+                <tr mdcDataTableHeaderRow>
+                  <th mdcDataTableHeaderCell numeric class="table-header">Set</th>
+                  <th mdcDataTableHeaderCell numeric class="table-header">Reps</th>
+                  <th mdcDataTableHeaderCell numeric class="table-header">Weight</th>
+                </tr>
+              </thead>
+              <tbody mdcDataTableContent>
+                <tr mdcDataTableRow *ngFor="let set of exercise.sets; index as i">
+                  <td mdcDataTableCell>{{ i + 1 }}</td>
+
+                  <td mdcDataTableCell numeric>
+                    <mdc-text-field outlined></mdc-text-field>
+                  </td>
+
+                  <td mdcDataTableCell numeric>
+                    <mdc-text-field outlined></mdc-text-field>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </mdc-data-table>
+        -->
+
+          <button mdcDialogButton outlined class="set-button" type="button" (click)="onAddSetClick()">Add Set</button>
+        </div>
+      </form>
 
     </mdc-dialog-surface>
   </mdc-dialog-container>

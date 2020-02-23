@@ -1,3 +1,7 @@
+<button mdc-fab mini class="fab">
+  <mdc-icon>add</mdc-icon>
+</button>
+
 <mdc-list-group>
   <mdc-list
     class="demo-list--custom"
@@ -5,6 +9,8 @@
     avatar
     #list
     [singleSelection]="true"
+    [useSelectedClass]="false"
+    [useActivatedClass]="false"
     (selectionChange)="onExerciseSelect($event)">
     <mdc-list-item
       *ngFor="let exercise of exercises"

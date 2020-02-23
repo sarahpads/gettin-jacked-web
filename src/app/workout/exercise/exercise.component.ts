@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { MdcDialogRef, MDC_DIALOG_DATA } from '@angular-mdc/web';
 
 export interface DialogData {
@@ -8,7 +8,8 @@ export interface DialogData {
 @Component({
   selector: 'app-exercise',
   templateUrl: './exercise.component.html',
-  styleUrls: ['./exercise.component.scss']
+  styleUrls: ['./exercise.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ExerciseComponent implements OnInit {
   public exercise;
@@ -21,6 +22,16 @@ export class ExerciseComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  public onCloseClick() {
+    this.dialogRef.close();
+  }
+
+  public onMenuSelect() {}
+
+  public onAddSetClick() {
+    this.exercise.sets.push({ target: 0, weight: 0 });
   }
 
 }

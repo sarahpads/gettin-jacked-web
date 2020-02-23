@@ -1,17 +1,27 @@
 @use "sass:map";
+@use '@material/button';
 @use '@material/dialog/_index' as dialog;
 @use '@material/top-app-bar/_index' as app-bar;
+@use '@material/icon-button/_index' as icon-button;
 @use '@material/theme/color-palette' as material-color;
 @use '@material/theme/variables' as material-variables;
+@use '@material/data-table/_index' as data-table;
+@use '@material/textfield/_index' as text-field;
+
 
 $text-colors: map.get(material-variables.$text-colors, dark);
 
+// TODO: replace material-color values with material-variable theme colors
 .exercise {
-  $min-width: 100%;
-  $max-width: 100%;
-  $margin: 0px;
+  // TODO: get these to work
+  @include dialog.shape-radius(0);
+  @include dialog.max-height(100vh, 0);
+  @include dialog.max-width(100vw, 0);
 
-  border-radius: 0;
+  border-radius: 0 !important;
+  max-height: 100vh !important;
+  max-width: 100vw !important;
+
   height: 100vh;
   width: 100vw;
 }
@@ -19,4 +29,70 @@ $text-colors: map.get(material-variables.$text-colors, dark);
 .header {
   @include app-bar.ink-color(map.get($text-colors, primary));
   @include app-bar.fill-color(material-color.$grey-50);
+  border-bottom: 1px solid material-color.$grey-300;
+
+  .button {
+    @include icon-button.ink-color(map.get($text-colors, secondary));
+  }
+
+}
+
+.form {
+  margin-top: 48px;
+}
+
+.form-group {
+  padding: 16px;
+}
+
+// force select to take up 100% of its container
+.select {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.menu {
+  width: 100%;
+}
+
+.set-button {
+  @include button.outline-color(material-variables.$primary);
+  @include button.outline-width(2px);
+  margin: 0;
+  width: 100%;
+}
+
+.data-table {
+  @include data-table.fill-color(transparent);
+  @include data-table.stroke-color(transparent);
+  @include data-table.divider-color(transparent);
+  @include data-table.cell-height(75px);
+}
+
+.table-header {
+  text-align: left;
+}
+
+.set {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.set-input {
+  flex-basis: 45%;
+}
+
+.input {
+  @include text-field.fill-color(transparent);
+  @include text-field.density(-4);
+}
+
+.mdc-text-field__input {
+  padding-left: 0;
+}
+
+.mdc-text-field__ripple {
+  display: none;
 }
