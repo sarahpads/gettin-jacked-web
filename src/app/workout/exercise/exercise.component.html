@@ -1,23 +1,23 @@
 <mdc-dialog>
   <mdc-dialog-container>
-    <mdc-dialog-surface class="exercise">
+    <mdc-dialog-surface class="exercise__surface">
 
-      <mdc-top-app-bar class="header" dense>
+      <mdc-top-app-bar>
         <mdc-top-app-bar-row>
           <mdc-top-app-bar-section align="start" [title]="exercise.label">
-            <button mdcTopAppBarNavIcon class="button" (click)="onCloseClick()">
+            <button mdcTopAppBarNavIcon (click)="onCloseClick()">
               <mdc-icon>check</mdc-icon>
             </button>
           </mdc-top-app-bar-section>
 
 
           <mdc-top-app-bar-section align="end">
-            <div mdcMenuSurfaceAnchor #demoAnchor>
-              <button mdcTopAppBarNavIcon class="button" (click)="demo.open = !demo.open">
+            <div mdcMenuSurfaceAnchor #headerButton>
+              <button mdcTopAppBarNavIcon class="button" (click)="headerMenu.open = !headerMenu.open">
                 <mdc-icon>more_vert</mdc-icon>
               </button>
 
-              <mdc-menu #demo [anchorElement]="demoAnchor" (selected)="onMenuSelect()">
+              <mdc-menu #headerMenu [anchorElement]="headerButton" (selected)="onMenuSelect()">
                 <mdc-list>
                   <mdc-list-item>
                     <mdc-icon mdcListItemGraphic class="icon">delete</mdc-icon>
@@ -27,82 +27,42 @@
               </mdc-menu>
             </div>
           </mdc-top-app-bar-section>
+
         </mdc-top-app-bar-row>
       </mdc-top-app-bar>
 
-      <form class="form">
-        <div class="form-group">
+      <form class="exercise__form">
+        <div class="exercise__details">
           <h2 mdcSubtitle1>Exercise Details</h2>
           <mdc-select
-            class="select"
+            class="exercise__equipment-select"
             placeholder="Equipment"
             name="equipment"
             [outlined]="true">
 
-            <mdc-menu class="menu">
+            <mdc-menu class="exercise__equipment-menu">
               <mdc-list>
                 <mdc-list-item value="apple">Barbell</mdc-list-item>
                 <mdc-list-item value="orange">Dumbbell</mdc-list-item>
                 <mdc-list-item value="banana">Smith Machine</mdc-list-item>
-                <mdc-list-item disabled value="mango">Plate</mdc-list-item>
-              </mdc-list>
-            </mdc-menu>
-          </mdc-select>
-
-          <mdc-select
-            placeholder="Cable Height"
-            name="cable-height"
-            [outlined]="true">
-
-            <mdc-menu class="menu">
-              <mdc-list>
-                <mdc-list-item value="apple">1</mdc-list-item>
-                <mdc-list-item value="orange">2</mdc-list-item>
-                <mdc-list-item value="banana">3</mdc-list-item>
-                <mdc-list-item disabled value="mango">4</mdc-list-item>
+                <mdc-list-item value="mango">Plate</mdc-list-item>
               </mdc-list>
             </mdc-menu>
           </mdc-select>
         </div>
 
-        <div class="form-group">
-          <div *ngFor="let set of exercise.sets; index as i">
-            <span mdcSubtitle1>Set {{ i + 1 }}</span>
+        <div class="exercise__sets">
+          <h2 mdcSubtitle1>Sets</h2>
 
-            <div class="set">
-              <div class="set-input"><mdc-text-field placeholder="Reps" class="input"></mdc-text-field></div>
-              <div class="set-input"><mdc-text-field placeholder="Weight" class="input"></mdc-text-field></div>
+          <div class="exercise__sets-container">
+            <div *ngFor="let set of exercise.sets; index as i">
+              <app-set [set]="set"></app-set>
             </div>
           </div>
-          <!--
-          <mdc-data-table class="data-table">
-            <table mdcDataTableTable>
-              <thead>
-                <tr mdcDataTableHeaderRow>
-                  <th mdcDataTableHeaderCell numeric class="table-header">Set</th>
-                  <th mdcDataTableHeaderCell numeric class="table-header">Reps</th>
-                  <th mdcDataTableHeaderCell numeric class="table-header">Weight</th>
-                </tr>
-              </thead>
-              <tbody mdcDataTableContent>
-                <tr mdcDataTableRow *ngFor="let set of exercise.sets; index as i">
-                  <td mdcDataTableCell>{{ i + 1 }}</td>
 
-                  <td mdcDataTableCell numeric>
-                    <mdc-text-field outlined></mdc-text-field>
-                  </td>
-
-                  <td mdcDataTableCell numeric>
-                    <mdc-text-field outlined></mdc-text-field>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </mdc-data-table>
-        -->
-
-          <button mdcDialogButton outlined class="set-button" type="button" (click)="onAddSetClick()">Add Set</button>
         </div>
+
+        <button mdcDialogButton outlined class="exercise__add-set" type="button" (click)="onAddSetClick()">Add Set</button>
       </form>
 
     </mdc-dialog-surface>

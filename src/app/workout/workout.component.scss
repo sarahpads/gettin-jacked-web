@@ -3,17 +3,19 @@
 @use '@material/theme/color-palette' as material-color;
 @use '@material/theme/variables' as material-variables;
 
-$text-colors: map.get(material-variables.$text-colors, light);
+$dark-text-colors: map.get(material-variables.$text-colors, light);
 
-.demo-list--custom {
-  @include list.item-graphic-fill-color(map.get(material-variables.$property-values, text-icon-on-background));
-  @include list.item-graphic-ink-color(map.get($text-colors, primary));
-}
+.workout {
+  &__fab {
+    display: block;
+    margin-left: 1rem;
+    position: relative;
+    transform: translateY(-50%);
+    z-index: 4;
+  }
 
-.fab {
-  display: block;
-  margin-left: 1rem;
-  position: relative;
-  transform: translateY(-50%);
-  z-index: 4;
+  &__list{
+    @include list.item-graphic-fill-color(map.get(material-variables.$property-values, text-icon-on-background));
+    @include list.item-graphic-ink-color(map.get($dark-text-colors, primary));
+  }
 }

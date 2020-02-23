@@ -1,0 +1,23 @@
+<div class="set">
+  <div class="set__progress {{ set.index == 0 ? '-first' : '' }}" [ngClass]="'-' + set.status">
+    <span class="set__progress-label" mdcSubtitle1>{{ set.index + 1 }}</span>
+  </div>
+
+  <div class="set__input"><mdc-text-field placeholder="Reps" class="input"></mdc-text-field></div>
+  <div class="set__input"><mdc-text-field placeholder="Weight" class="input"></mdc-text-field></div>
+
+  <div mdcMenuSurfaceAnchor #setButton class="set__mad-button">
+    <button mdcIconButton type="button" (click)="setMenu.open = !setMenu.open">
+      <mdc-icon>more_vert</mdc-icon>
+    </button>
+
+    <mdc-menu #setMenu [anchorElement]="setButton" (selected)="onMenuSelect()">
+      <mdc-list>
+        <mdc-list-item>
+          <mdc-icon mdcListItemGraphic>delete</mdc-icon>
+          Remove
+        </mdc-list-item>
+      </mdc-list>
+    </mdc-menu>
+  </div>
+</div>

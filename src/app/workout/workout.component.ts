@@ -20,11 +20,27 @@ export class WorkoutComponent implements OnInit {
       icon: 'fitness_center',
       targetWeight: '9',
       equipment: 'smith',
-      status: '9 plates • 2/4 sets',
+      progress: '9 plates • 2/4 sets',
+      status: 'in-progress',
       sets: [
-        { reps: 10, weight: '9' },
-        { reps: 8, weight: '9' },
-        { reps: 6, weight: '9' }
+        { index: 0, reps: 10, weight: '9', status: 'complete' },
+        { index: 1, reps: 0, weight: '9', status: 'in-progress' },
+        { index: 2, reps: 0, weight: '9', status: 'not-started' }
+      ]
+    },
+    {
+      id: 2,
+      label: 'Row, Spider',
+      muscleGroup: 'back',
+      icon: 'fitness_center',
+      targetWeight: '9',
+      equipment: 'smith',
+      progress: '30lb • 4/4 sets',
+      status: 'complete',
+      sets: [
+        { index: 0, reps: 10, weight: '9', status: 'complete' },
+        { index: 1, reps: 0, weight: '9', status: 'in-progress' },
+        { index: 2, reps: 0, weight: '9', status: 'not-started' }
       ]
     }
   ]

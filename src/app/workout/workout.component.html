@@ -1,23 +1,25 @@
-<button mdc-fab mini class="fab">
+<button mdc-fab mini class="workout__fab">
   <mdc-icon>add</mdc-icon>
 </button>
 
 <mdc-list-group>
   <mdc-list
-    class="demo-list--custom"
+    class="workout__list"
     twoLine
     avatar
     #list
-    [singleSelection]="true"
     [useSelectedClass]="false"
     [useActivatedClass]="false"
     (selectionChange)="onExerciseSelect($event)">
-    <mdc-list-item
-      *ngFor="let exercise of exercises"
-      [value]="exercise.id">
-      <mdc-icon mdcListItemGraphic>{{ exercise.icon }}</mdc-icon>
 
-      <mdc-list-item-text [secondaryText]="exercise.status">{{ exercise.label }}</mdc-list-item-text>
+    <mdc-list-item *ngFor="let exercise of exercises" [value]="exercise.id">
+      <mdc-icon mdcListItemGraphic>
+        {{ exercise.status === 'complete' ? 'check' : exercise.icon }}
+      </mdc-icon>
+
+      <mdc-list-item-text [secondaryText]="exercise.progress">
+        {{ exercise.label }}
+      </mdc-list-item-text>
 
       <mdc-icon mdcListItemMeta>edit</mdc-icon>
     </mdc-list-item>

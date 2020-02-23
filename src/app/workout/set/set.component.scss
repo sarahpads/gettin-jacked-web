@@ -1,0 +1,67 @@
+@use '@material/theme/variables' as material-variables;
+@use '@material/textfield/_index' as text-field;
+
+.set {
+  display: flex;
+  height: 84px;
+  justify-content: space-between;
+
+  &__progress {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+    position: relative;
+
+    &.-complete:before {
+      border-left-style: solid;
+    }
+
+    &.-in-progress:before {
+      border-left-style: dashed;
+    }
+
+    &.-not-started:before,
+    &.-first:before {
+      border-style: none;
+    }
+
+    &:before {
+      content: '';
+      height: 100%;
+      border-left: 1px solid #{material-variables.$primary};
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+    }
+  }
+
+  &__progress-label {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #{material-variables.$primary};
+    border-radius: 50%;
+    color: material-variables.$primary;
+    font-size: .75rem;
+    display: flex;
+    height: 1.5em;
+    justify-content: center;
+    width: 1.5em;
+    z-index: 1;
+
+    .-complete & {
+      background-color: material-variables.$primary;
+      color: #fff;
+    }
+  }
+
+  &__input,
+  &__mad-button {
+    align-self: center;
+  }
+
+  &__input {
+    @include text-field.fill-color(transparent);
+    @include text-field.density(-4);
+  }
+}
