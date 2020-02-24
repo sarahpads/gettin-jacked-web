@@ -3,7 +3,7 @@
 @use '@material/theme/color-palette' as material-color;
 @use '@material/theme/variables' as material-variables;
 
-$dark-text-colors: map.get(material-variables.$text-colors, light);
+$light-text-colors: map.get(material-variables.$text-colors, light);
 
 .workout {
   &__fab {
@@ -14,8 +14,27 @@ $dark-text-colors: map.get(material-variables.$text-colors, light);
     z-index: 4;
   }
 
-  &__list{
+  &__list {
     @include list.item-graphic-fill-color(map.get(material-variables.$property-values, text-icon-on-background));
-    @include list.item-graphic-ink-color(map.get($dark-text-colors, primary));
+    @include list.item-graphic-ink-color(map.get($light-text-colors, primary));
+  }
+
+  &__exercise-set {
+    background-color: material-variables.$secondary;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 0.75rem;
+    display: inline-block;
+    height: 1.75em;
+    line-height: 1.75em;
+    justify-content: center;
+    width: 1.75em;
+    text-align: center;
+    margin: 0.5em;
+
+    &.-empty {
+      background-color: material-color.$grey-300;
+      color: transparent;
+    }
   }
 }

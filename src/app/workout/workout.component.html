@@ -17,11 +17,20 @@
         {{ exercise.status === 'complete' ? 'check' : exercise.icon }}
       </mdc-icon>
 
-      <mdc-list-item-text [secondaryText]="exercise.progress">
+      <mdc-list-item-text>
         {{ exercise.label }}
+
+        <div>
+          <span
+            class="workout__exercise-set"
+            [ngClass]="{'-empty': !set.reps}"
+            *ngFor="let set of exercise.sets">
+            {{ set.reps }}
+          </span>
+        </div>
       </mdc-list-item-text>
 
-      <mdc-icon mdcListItemMeta>edit</mdc-icon>
+      <span class="workout__weight" mdcListItemMeta>{{ exercise.targetWeight }}</span>
     </mdc-list-item>
   </mdc-list>
 </mdc-list-group>

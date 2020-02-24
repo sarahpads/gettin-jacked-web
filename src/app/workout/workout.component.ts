@@ -20,7 +20,6 @@ export class WorkoutComponent implements OnInit {
       icon: 'fitness_center',
       targetWeight: '9',
       equipment: 'smith',
-      progress: '9 plates • 2/4 sets',
       status: 'in-progress',
       sets: [
         { index: 0, reps: 10, weight: '9', status: 'complete' },
@@ -35,7 +34,6 @@ export class WorkoutComponent implements OnInit {
       icon: 'fitness_center',
       targetWeight: '9',
       equipment: 'smith',
-      progress: '30lb • 4/4 sets',
       status: 'complete',
       sets: [
         { index: 0, reps: 10, weight: '9', status: 'complete' },
