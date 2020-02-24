@@ -24,13 +24,10 @@ $text-colors: map.get(material-variables.$text-colors, dark);
     width: 100vw;
   }
 
-  &__form {
-    margin-top: 56px;
-  }
-
   &__details,
-  &__sets {
-    padding: 16px;
+  &__sets,
+  &__add-set {
+    padding: 1rem;
   }
 
   &__sets {
@@ -53,8 +50,9 @@ $text-colors: map.get(material-variables.$text-colors, dark);
     position: relative;
   }
 
-  &__add-set {
+  &__add-set-button {
     @include button.outline-color(material-variables.$primary);
     @include button.outline-width(2px);
+    width: 100%;
   }
 }

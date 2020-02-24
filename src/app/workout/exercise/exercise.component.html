@@ -31,7 +31,7 @@
         </mdc-top-app-bar-row>
       </mdc-top-app-bar>
 
-      <form class="exercise__form">
+      <form mdcTopAppBarFixedAdjust class="exercise__form">
         <div class="exercise__details">
           <h2 mdcSubtitle1>Exercise Details</h2>
           <mdc-select
@@ -62,7 +62,10 @@
 
         </div>
 
-        <button mdcDialogButton outlined class="exercise__add-set" type="button" (click)="onAddSetClick()">Add Set</button>
+        <div class="exercise__add-set">
+          <button mdcDialogButton outlined class="exercise__add-set-button" type="button" (click)="onAddSetClick()">Add Set</button>
+        </div>
+
       </form>
 
     </mdc-dialog-surface>

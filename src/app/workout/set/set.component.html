@@ -3,8 +3,8 @@
     <span class="set__progress-label" mdcSubtitle1>{{ set.index + 1 }}</span>
   </div>
 
-  <div class="set__input"><mdc-text-field placeholder="Reps" class="input"></mdc-text-field></div>
-  <div class="set__input"><mdc-text-field placeholder="Weight" class="input"></mdc-text-field></div>
+  <mdc-text-field placeholder="Reps" class="set__input"></mdc-text-field>
+  <mdc-text-field placeholder="Weight" class="set__input"></mdc-text-field>
 
   <div mdcMenuSurfaceAnchor #setButton class="set__mad-button">
     <button mdcIconButton type="button" (click)="setMenu.open = !setMenu.open">
