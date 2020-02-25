@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MdcDialog } from '@angular-mdc/web';
-
-import { ExerciseComponent } from './exercise/exercise.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-workout',
@@ -44,7 +42,7 @@ export class WorkoutComponent implements OnInit {
   ]
 
   constructor(
-    private dialog: MdcDialog
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -55,17 +53,7 @@ export class WorkoutComponent implements OnInit {
       return exercise.id === event.option.value;
     });
 
-
-    const dialogRef = this.dialog.open(ExerciseComponent, {
-      escapeToClose: false,
-      clickOutsideToClose: false,
-      buttonsStacked: false,
-      data: { exercise: selectedItem }
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-    });
+    this.router.navigate(['workout', selectedItem.id]);
 
     console.log(selectedItem);
   }

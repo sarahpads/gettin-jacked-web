@@ -1,5 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MdcDialogRef, MDC_DIALOG_DATA } from '@angular-mdc/web';
+import { Component, OnInit } from '@angular/core';
 
 export interface DialogData {
   exercise: any;
@@ -11,26 +10,33 @@ export interface DialogData {
   styleUrls: ['./exercise.component.scss'],
 })
 export class ExerciseComponent implements OnInit {
-  public exercise;
+  public exercise = {
+    id: 1,
+    label: 'Row, Seated Cable',
+    muscleGroup: 'back',
+    icon: 'fitness_center',
+    targetWeight: 9,
+    equipment: 'smith',
+    status: 'in-progress',
+    sets: [
+      { index: 0, reps: 10, weight: 9, status: 'complete' },
+      { index: 1, reps: 0, weight: 9, status: 'in-progress' },
+      { index: 2, reps: 0, weight: 9, status: 'not-started' }
+    ]
+  };
 
-  constructor(
-    public dialogRef: MdcDialogRef<ExerciseComponent>,
-    @Inject(MDC_DIALOG_DATA) public data: DialogData
-  ) {
-    this.exercise = data.exercise;
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  public onCloseClick() {
-    this.dialogRef.close();
-  }
-
   public onMenuSelect() {}
 
+  public onBackClick() {}
+
   public onAddSetClick() {
-    this.exercise.sets.push({ target: 0, weight: 0, status: 'not-started' });
+    const index = this.exercise.sets.length;
+    this.exercise.sets.push({ index, reps: 0, weight: 0, status: 'not-started' });
   }
 
 }

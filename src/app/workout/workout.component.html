@@ -20,6 +20,8 @@
       <mdc-list-item-text>
         {{ exercise.label }}
 
+        <a [routerLink]="['./', exercise.id]">Test</a>
+
         <div>
           <span
             class="workout__exercise-set"
@@ -30,7 +32,7 @@
         </div>
       </mdc-list-item-text>
 
-      <span class="workout__weight" mdcListItemMeta>{{ exercise.targetWeight }}</span>
+      <mdc-icon mdcListItemMeta>chevron_right</mdc-icon>
     </mdc-list-item>
   </mdc-list>
 </mdc-list-group>

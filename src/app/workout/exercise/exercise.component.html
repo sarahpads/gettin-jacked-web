@@ -1,73 +1,65 @@
-<mdc-dialog>
-  <mdc-dialog-container>
-    <mdc-dialog-surface class="exercise__surface">
-
-      <mdc-top-app-bar>
-        <mdc-top-app-bar-row>
-          <mdc-top-app-bar-section align="start" [title]="exercise.label">
-            <button mdcTopAppBarNavIcon (click)="onCloseClick()">
-              <mdc-icon>check</mdc-icon>
-            </button>
-          </mdc-top-app-bar-section>
+<mdc-top-app-bar>
+  <mdc-top-app-bar-row>
+    <mdc-top-app-bar-section align="start" [title]="exercise.label">
+      <button mdcTopAppBarNavIcon (click)="onBackClick()">
+        <mdc-icon>arrow_back</mdc-icon>
+      </button>
+    </mdc-top-app-bar-section>
 
 
-          <mdc-top-app-bar-section align="end">
-            <div mdcMenuSurfaceAnchor #headerButton>
-              <button mdcTopAppBarNavIcon class="button" (click)="headerMenu.open = !headerMenu.open">
-                <mdc-icon>more_vert</mdc-icon>
-              </button>
+    <mdc-top-app-bar-section align="end">
+      <div mdcMenuSurfaceAnchor #headerButton>
+        <button mdcTopAppBarNavIcon class="button" (click)="headerMenu.open = !headerMenu.open">
+          <mdc-icon>more_vert</mdc-icon>
+        </button>
 
-              <mdc-menu #headerMenu [anchorElement]="headerButton" (selected)="onMenuSelect()">
-                <mdc-list>
-                  <mdc-list-item>
-                    <mdc-icon mdcListItemGraphic class="icon">delete</mdc-icon>
-                    Remove
-                  </mdc-list-item>
-                </mdc-list>
-              </mdc-menu>
-            </div>
-          </mdc-top-app-bar-section>
+        <mdc-menu #headerMenu [anchorElement]="headerButton" (selected)="onMenuSelect()">
+          <mdc-list>
+            <mdc-list-item>
+              <mdc-icon mdcListItemGraphic class="icon">delete</mdc-icon>
+              Remove
+            </mdc-list-item>
+          </mdc-list>
+        </mdc-menu>
+      </div>
+    </mdc-top-app-bar-section>
 
-        </mdc-top-app-bar-row>
-      </mdc-top-app-bar>
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
 
-      <form mdcTopAppBarFixedAdjust class="exercise__form">
-        <div class="exercise__details">
-          <h2 mdcSubtitle1>Exercise Details</h2>
-          <mdc-select
-            class="exercise__equipment-select"
-            placeholder="Equipment"
-            name="equipment"
-            [outlined]="true">
+<form mdcTopAppBarFixedAdjust class="exercise__form">
+  <div class="exercise__details">
+    <h2 mdcSubtitle1>Exercise Details</h2>
+    <mdc-select
+      class="exercise__equipment-select"
+      placeholder="Equipment"
+      name="equipment"
+      [outlined]="true">
 
-            <mdc-menu class="exercise__equipment-menu">
-              <mdc-list>
-                <mdc-list-item value="apple">Barbell</mdc-list-item>
-                <mdc-list-item value="orange">Dumbbell</mdc-list-item>
-                <mdc-list-item value="banana">Smith Machine</mdc-list-item>
-                <mdc-list-item value="mango">Plate</mdc-list-item>
-              </mdc-list>
-            </mdc-menu>
-          </mdc-select>
-        </div>
+      <mdc-menu class="exercise__equipment-menu">
+        <mdc-list>
+          <mdc-list-item value="apple">Barbell</mdc-list-item>
+          <mdc-list-item value="orange">Dumbbell</mdc-list-item>
+          <mdc-list-item value="banana">Smith Machine</mdc-list-item>
+          <mdc-list-item value="mango">Plate</mdc-list-item>
+        </mdc-list>
+      </mdc-menu>
+    </mdc-select>
+  </div>
 
-        <div class="exercise__sets">
-          <h2 mdcSubtitle1>Sets</h2>
+  <div class="exercise__sets">
+    <h2 mdcSubtitle1>Sets</h2>
 
-          <div class="exercise__sets-container">
-            <div *ngFor="let set of exercise.sets; index as i">
-              <app-set [set]="set"></app-set>
-            </div>
-          </div>
+    <div class="exercise__sets-container">
+      <div *ngFor="let set of exercise.sets; index as i">
+        <app-set [set]="set"></app-set>
+      </div>
+    </div>
 
-        </div>
+  </div>
 
-        <div class="exercise__add-set">
-          <button mdcDialogButton outlined class="exercise__add-set-button" type="button" (click)="onAddSetClick()">Add Set</button>
-        </div>
+  <div class="exercise__add-set">
+    <button mdcDialogButton outlined class="exercise__add-set-button" type="button" (click)="onAddSetClick()">Add Set</button>
+  </div>
 
-      </form>
-
-    </mdc-dialog-surface>
-  </mdc-dialog-container>
-</mdc-dialog>
+</form>
