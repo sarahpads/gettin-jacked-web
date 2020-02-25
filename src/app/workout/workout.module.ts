@@ -17,6 +17,7 @@ import { WorkoutRoutingModule } from './workout-routing.module';
 import { WorkoutComponent } from './workout.component';
 import { ExerciseComponent } from './exercise/exercise.component';
 import { SetComponent } from './set/set.component';
+import { LayoutModule } from '../shared/layout/layout.module';
 
 @NgModule({
   declarations: [WorkoutComponent, ExerciseComponent, SetComponent],
@@ -32,6 +33,7 @@ import { SetComponent } from './set/set.component';
     MdcTypographyModule,
     MdcTextFieldModule,
     MdcFabModule,
+    LayoutModule,
     WorkoutRoutingModule
   ]
 })

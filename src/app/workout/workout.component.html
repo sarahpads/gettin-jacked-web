@@ -1,38 +1,42 @@
-<button mdc-fab mini class="workout__fab">
-  <mdc-icon>add</mdc-icon>
-</button>
+<mdc-top-app-bar prominent [fixedAdjustElement]="content">
+  <app-header title="Workout"></app-header>
+</mdc-top-app-bar>
 
-<mdc-list-group>
-  <mdc-list
-    class="workout__list"
-    twoLine
-    avatar
-    #list
-    [useSelectedClass]="false"
-    [useActivatedClass]="false"
-    (selectionChange)="onExerciseSelect($event)">
+<div mdcTopAppBarFixedAdjust #content>
+  <button mdc-fab mini class="workout__fab">
+    <mdc-icon>add</mdc-icon>
+  </button>
 
-    <mdc-list-item *ngFor="let exercise of exercises" [value]="exercise.id">
-      <mdc-icon mdcListItemGraphic>
-        {{ exercise.status === 'complete' ? 'check' : exercise.icon }}
-      </mdc-icon>
+  <mdc-list-group>
+    <mdc-list
+      class="workout__list"
+      twoLine
+      avatar
+      #list
+      [useSelectedClass]="false"
+      [useActivatedClass]="false"
+      (selectionChange)="onExerciseSelect($event)">
 
-      <mdc-list-item-text>
-        {{ exercise.label }}
+      <mdc-list-item *ngFor="let exercise of exercises" [value]="exercise.id">
+        <mdc-icon mdcListItemGraphic>
+          {{ exercise.status === 'complete' ? 'check' : exercise.icon }}
+        </mdc-icon>
 
-        <a [routerLink]="['./', exercise.id]">Test</a>
+        <mdc-list-item-text>
+          {{ exercise.label }}
 
-        <div>
-          <span
-            class="workout__exercise-set"
-            [ngClass]="{'-empty': !set.reps}"
-            *ngFor="let set of exercise.sets">
-            {{ set.reps }}
-          </span>
-        </div>
-      </mdc-list-item-text>
+          <div>
+            <span
+              class="workout__exercise-set"
+              [ngClass]="{'-empty': !set.reps}"
+              *ngFor="let set of exercise.sets">
+              {{ set.reps }}
+            </span>
+          </div>
+        </mdc-list-item-text>
 
-      <mdc-icon mdcListItemMeta>chevron_right</mdc-icon>
-    </mdc-list-item>
-  </mdc-list>
-</mdc-list-group>
+        <mdc-icon mdcListItemMeta>chevron_right</mdc-icon>
+      </mdc-list-item>
+    </mdc-list>
+  </mdc-list-group>
+</div>
