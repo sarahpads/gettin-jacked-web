@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SideNavModule } from './side-nav/side-nav.module';
-import { HeaderModule } from './header/header.module';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    HeaderModule,
-    SideNavModule
+    LayoutModule
   ],
   exports: [
-    HeaderModule,
-    SideNavModule
+    LayoutModule
   ]
 })
 export class SharedModule { }

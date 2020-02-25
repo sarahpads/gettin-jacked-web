@@ -1,4 +1,8 @@
-<mdc-drawer drawer="modal">
+<mdc-drawer
+  drawer="modal"
+  [open]="isOpen | async"
+  (openedChange)="onOpenChange($event)"
+>
   <mdc-drawer-header title="Drawer Title" subtitle="Subtitle"></mdc-drawer-header>
 
   <mdc-drawer-content>
