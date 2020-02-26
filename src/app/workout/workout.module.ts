@@ -19,11 +19,12 @@ import {
 import { WorkoutRoutingModule } from './workout-routing.module';
 import { WorkoutComponent } from './workout.component';
 import { ExerciseComponent } from './exercise/exercise.component';
+import { ExerciseCardComponent } from './exercise-card/exercise-card.component';
 import { SetComponent } from './set/set.component';
 import { LayoutModule } from '../shared/layout/layout.module';
 
 @NgModule({
-  declarations: [WorkoutComponent, ExerciseComponent, SetComponent],
+  declarations: [WorkoutComponent, ExerciseComponent, SetComponent, ExerciseCardComponent],
   imports: [
     CommonModule,
     MdcChipsModule,

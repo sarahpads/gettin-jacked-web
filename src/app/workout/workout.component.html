@@ -7,36 +7,7 @@
     <mdc-icon>add</mdc-icon>
   </button>
 
-  <mdc-card class="workout__card" outlined *ngFor="let exercise of exercises">
-    <mdc-card-primary-action class="workout__exercise">
-      <h2 mdcHeadline6 class="workout__exercise-title">{{ exercise.label }}</h2>
-      <span mdcSubtitle2 class="workout__exercise-target">{{ exercise.targetReps }} reps at {{ exercise.targetWeight }}</span>
-
-      <div mdcBody2 class="workout__exercise-difficulty">
-        <mdc-icon inline class="workout__exercise-difficulty-icon">add_circle</mdc-icon>
-        <span>Harder than last time</span>
-      </div>
-    </mdc-card-primary-action>
-
-    <mdc-list-divider class="workout__exercise-divider"></mdc-list-divider>
-
-    <h3 mdcSubtitle1 class="workout__exercise-sets-title">Your sets</h3>
-    <mdc-chip-set [input]="true" class="workout__exercise-sets">
-      <mdc-chip
-        [input]="true"
-        *ngFor="let set of exercise.sets; index as i"
-        class="workout__exercise-set"
-        [value]="i"
-        [ngClass]="{'-empty': !set.reps}">
-        <mdc-chip-text class="">{{ set.reps  || ' ' }}</mdc-chip-text>
-      </mdc-chip>
-    </mdc-chip-set>
-
-    <mdc-card-actions>
-      <mdc-card-action-buttons>
-        <button mdc-button mdcCardAction="button" (click)="onExpandClick()">Expand</button>
-        <a mdc-button mdcCardAction="button" [routerLink]="[exercise.id]">Edit</a>
-      </mdc-card-action-buttons>
-    </mdc-card-actions>
-  </mdc-card>
+  <div *ngFor="let exercise of exercises">
+    <app-exercise-card [exercise]="exercise"></app-exercise-card>
+  </div>
 </div>

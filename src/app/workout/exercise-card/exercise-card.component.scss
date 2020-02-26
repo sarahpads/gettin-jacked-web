@@ -1,0 +1,46 @@
+@use "@material/theme";
+@use '@material/theme/color-palette' as material-color;
+
+.exercise-card {
+  margin: 1rem;
+
+  &__action {
+    padding: 1rem;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__target,
+  &__difficulty {
+    @include theme.prop(color, text-secondary-on-background);
+  }
+
+  &__difficulty {
+    align-items: center;
+    display: flex;
+    margin-top: 1rem;
+
+    &-icon {
+      @include theme.prop(color, material-color.$green-400);
+      margin-right: 0.3rem;
+    }
+  }
+
+  &__animation {
+    overflow: hidden;
+  }
+
+  &__sets-container {
+    padding: 12px;
+  }
+
+  &__sets-title {
+    margin: 1rem 1rem 0;
+  }
+
+  &__set {
+    min-width: 2rem;
+  }
+}

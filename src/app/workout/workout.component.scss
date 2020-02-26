@@ -1,6 +1,4 @@
 @use "sass:map";
-@use '@material/list/_index' as list;
-@use "@material/theme";
 @use '@material/theme/color-palette' as material-color;
 @use '@material/theme/variables' as material-variables;
 
@@ -11,6 +9,7 @@ $light-text-colors: map.get(material-variables.$text-colors, light);
   display: block;
   min-height: 100vh;
   padding-bottom: 1rem;
+  width: 100%;
 }
 
 .workout {
@@ -20,49 +19,5 @@ $light-text-colors: map.get(material-variables.$text-colors, light);
     position: relative;
     transform: translateY(-50%);
     z-index: 4;
-  }
-
-  &__card {
-    margin: 1rem;
-  }
-
-  &__exercise {
-    padding: 1rem;
-
-    &-title {
-      margin: 0;
-    }
-
-    &-target,
-    &-difficulty {
-      @include theme.prop(color, text-secondary-on-background);
-    }
-
-    &-difficulty {
-      align-items: center;
-      display: flex;
-      margin-top: 1rem;
-    }
-
-    &-difficulty-icon {
-      @include theme.prop(color, material-color.$green-400);
-      margin-right: 0.3rem;
-    }
-
-    &-divider {
-      //margin: 0 1rem;
-    }
-
-    &-sets {
-      padding: 12px;
-    }
-
-    &-sets-title {
-      margin: 1rem 1rem 0;
-    }
-
-    &-set {
-      min-width: 2rem;
-    }
   }
 }
