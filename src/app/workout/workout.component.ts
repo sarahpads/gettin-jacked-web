@@ -17,12 +17,16 @@ export class WorkoutComponent implements OnInit {
       muscleGroup: 'back',
       icon: 'fitness_center',
       targetWeight: '9',
+      targetReps: 10,
       equipment: 'smith',
       status: 'in-progress',
       sets: [
         { index: 0, reps: 10, weight: '9', status: 'complete' },
-        { index: 1, reps: 0, weight: '9', status: 'in-progress' },
-        { index: 2, reps: 0, weight: '9', status: 'not-started' }
+        { index: 1, reps: 15, weight: '9', status: 'in-progress' },
+        { index: 2, reps: 15, weight: '9', status: 'not-started' },
+        { index: 1, reps: 15, weight: '9', status: 'in-progress' },
+        { index: 1, reps: 15, weight: '9', status: 'in-progress' },
+        { index: 1, reps: 15, weight: '9', status: 'in-progress' }
       ]
     },
     {
@@ -31,6 +35,7 @@ export class WorkoutComponent implements OnInit {
       muscleGroup: 'back',
       icon: 'fitness_center',
       targetWeight: '9',
+      targetReps: 10,
       equipment: 'smith',
       status: 'complete',
       sets: [
@@ -56,5 +61,9 @@ export class WorkoutComponent implements OnInit {
     this.router.navigate(['workout', selectedItem.id]);
 
     console.log(selectedItem);
+  }
+
+  public onThing(event) {
+    console.log(event);
   }
 }

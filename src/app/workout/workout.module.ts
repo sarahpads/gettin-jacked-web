@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
+  MdcChipsModule,
   MdcListModule,
+  MdcButtonModule,
   MdcIconModule,
   MdcIconButtonModule,
   MdcDialogModule,
@@ -10,7 +12,8 @@ import {
   MdcSelectModule,
   MdcTypographyModule,
   MdcTextFieldModule,
-  MdcFabModule
+  MdcFabModule,
+  MdcCardModule
 } from '@angular-mdc/web';
 
 import { WorkoutRoutingModule } from './workout-routing.module';
@@ -23,10 +26,13 @@ import { LayoutModule } from '../shared/layout/layout.module';
   declarations: [WorkoutComponent, ExerciseComponent, SetComponent],
   imports: [
     CommonModule,
+    MdcChipsModule,
+    MdcCardModule,
     MdcListModule,
     MdcIconModule,
     MdcDialogModule,
     MdcTopAppBarModule,
+    MdcButtonModule,
     MdcIconButtonModule,
     MdcMenuModule,
     MdcSelectModule,

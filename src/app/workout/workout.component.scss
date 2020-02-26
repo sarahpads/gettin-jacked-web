@@ -1,9 +1,17 @@
 @use "sass:map";
 @use '@material/list/_index' as list;
+@use "@material/theme";
 @use '@material/theme/color-palette' as material-color;
 @use '@material/theme/variables' as material-variables;
 
 $light-text-colors: map.get(material-variables.$text-colors, light);
+
+:host {
+  background-color: material-color.$grey-200;
+  display: block;
+  min-height: 100vh;
+  padding-bottom: 1rem;
+}
 
 .workout {
   &__fab {
@@ -14,27 +22,41 @@ $light-text-colors: map.get(material-variables.$text-colors, light);
     z-index: 4;
   }
 
-  &__list {
-    @include list.item-graphic-fill-color(map.get(material-variables.$property-values, text-icon-on-background));
-    @include list.item-graphic-ink-color(map.get($light-text-colors, primary));
+  &__card {
+    margin: 1rem;
   }
 
-  &__exercise-set {
-    background-color: material-variables.$secondary;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 0.75rem;
-    display: inline-block;
-    height: 1.75em;
-    line-height: 1.75em;
-    justify-content: center;
-    width: 1.75em;
-    text-align: center;
-    margin: 0.5em;
+  &__exercise {
+    padding: 1rem;
 
-    &.-empty {
-      background-color: material-color.$grey-300;
-      color: transparent;
+    &-title {
+      margin: 0;
+    }
+
+    &-target {
+      @include theme.prop(color, text-secondary-on-background);
+    }
+
+    &-difficulty {
+      align-items: center;
+      display: flex;
+      margin-top: 1rem;
+    }
+
+    &-difficulty-icon {
+      margin-right: 0.3rem;
+    }
+
+    &-divider {
+      margin: 0 1rem;
+    }
+
+    &-sets {
+      padding: 12px;
+    }
+
+    &-set {
+      min-width: 2rem;
     }
   }
 }

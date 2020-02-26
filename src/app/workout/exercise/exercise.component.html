@@ -1,9 +1,9 @@
 <mdc-top-app-bar>
   <mdc-top-app-bar-row>
     <mdc-top-app-bar-section align="start" [title]="exercise.label">
-      <button mdcTopAppBarNavIcon (click)="onBackClick()">
+      <a mdcTopAppBarNavIcon [routerLink]="['../']">
         <mdc-icon>arrow_back</mdc-icon>
-      </button>
+      </a>
     </mdc-top-app-bar-section>
 
 
