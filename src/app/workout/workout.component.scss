@@ -33,7 +33,8 @@ $light-text-colors: map.get(material-variables.$text-colors, light);
       margin: 0;
     }
 
-    &-target {
+    &-target,
+    &-difficulty {
       @include theme.prop(color, text-secondary-on-background);
     }
 
@@ -44,15 +45,20 @@ $light-text-colors: map.get(material-variables.$text-colors, light);
     }
 
     &-difficulty-icon {
+      @include theme.prop(color, material-color.$green-400);
       margin-right: 0.3rem;
     }
 
     &-divider {
-      margin: 0 1rem;
+      //margin: 0 1rem;
     }
 
     &-sets {
       padding: 12px;
+    }
+
+    &-sets-title {
+      margin: 1rem 1rem 0;
     }
 
     &-set {

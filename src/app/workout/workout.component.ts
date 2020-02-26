@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-workout',
@@ -46,24 +45,12 @@ export class WorkoutComponent implements OnInit {
     }
   ]
 
-  constructor(
-    private router: Router
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  public onExerciseSelect(event) {
-    const selectedItem = this.exercises.find((exercise) => {
-      return exercise.id === event.option.value;
-    });
+  public onExpandClick() {
 
-    this.router.navigate(['workout', selectedItem.id]);
-
-    console.log(selectedItem);
-  }
-
-  public onThing(event) {
-    console.log(event);
   }
 }
