@@ -11,7 +11,7 @@ import { exerciseCardAnimations } from './exercise-card-animations';
 export class ExerciseCardComponent implements OnInit {
   @Input() public exercise;
 
-  public isExpanded = false;
+  public isExpanded = true;
 
   constructor() { }
 

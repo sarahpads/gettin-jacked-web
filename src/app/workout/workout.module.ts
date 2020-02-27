@@ -13,7 +13,9 @@ import {
   MdcTypographyModule,
   MdcTextFieldModule,
   MdcFabModule,
-  MdcCardModule
+  MdcCardModule,
+  MdcFormFieldModule,
+  MdcCheckboxModule
 } from '@angular-mdc/web';
 
 import { WorkoutRoutingModule } from './workout-routing.module';
@@ -40,6 +42,8 @@ import { LayoutModule } from '../shared/layout/layout.module';
     MdcTypographyModule,
     MdcTextFieldModule,
     MdcFabModule,
+    MdcFormFieldModule,
+    MdcCheckboxModule,
     LayoutModule,
     WorkoutRoutingModule
   ]

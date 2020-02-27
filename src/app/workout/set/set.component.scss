@@ -3,26 +3,23 @@
 
 .set {
   display: flex;
-  height: 84px;
-  justify-content: space-between;
 
   &__progress {
-    align-items: center;
+    border-style: none;
     display: flex;
     flex-shrink: 0;
-    margin-right: 0.5rem;
+    margin-top: 1rem;
     position: relative;
 
-    &.-complete:before {
+    &.-solid:before {
       border-left-style: solid;
     }
 
-    &.-in-progress:before {
+    &.-dashed:before {
       border-left-style: dashed;
     }
 
-    &.-not-started:before,
-    &.-first:before {
+    &.-none:before {
       border-style: none;
     }
 
@@ -32,7 +29,7 @@
       border-left: 1px solid #{material-variables.$primary};
       position: absolute;
       left: 50%;
-      bottom: 50%;
+      top: -100%;
     }
   }
 
@@ -42,11 +39,10 @@
     border: 1px solid #{material-variables.$primary};
     border-radius: 50%;
     color: material-variables.$primary;
-    font-size: .75rem;
     display: flex;
-    height: 1.5em;
+    height: 2em;
     justify-content: center;
-    width: 1.5em;
+    width: 2em;
     z-index: 1;
 
     .-complete & {
@@ -55,13 +51,12 @@
     }
   }
 
-  &__input,
-  &__mad-button {
-    align-self: center;
+  &__inputs-row {
+    display: flex;
   }
 
   &__input {
-    @include text-field.fill-color(transparent);
     @include text-field.density(-4);
+    margin: 1rem 0 0 1rem;
   }
 }

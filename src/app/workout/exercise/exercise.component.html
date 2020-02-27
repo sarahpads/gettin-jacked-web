@@ -1,7 +1,7 @@
-<mdc-top-app-bar>
+<mdc-top-app-bar class="exercise__header">
   <mdc-top-app-bar-row>
     <mdc-top-app-bar-section align="start" [title]="exercise.label">
-      <a mdcTopAppBarNavIcon [routerLink]="['../']">
+      <a mdcTopAppBarNavIcon [routerLink]="['../']" class="exercise__header-button">
         <mdc-icon>arrow_back</mdc-icon>
       </a>
     </mdc-top-app-bar-section>
@@ -9,7 +9,7 @@
 
     <mdc-top-app-bar-section align="end">
       <div mdcMenuSurfaceAnchor #headerButton>
-        <button mdcTopAppBarNavIcon class="button" (click)="headerMenu.open = !headerMenu.open">
+        <button mdcTopAppBarNavIcon class="exercise__header-button" (click)="headerMenu.open = !headerMenu.open">
           <mdc-icon>more_vert</mdc-icon>
         </button>
 
@@ -33,8 +33,8 @@
     <mdc-select
       class="exercise__equipment-select"
       placeholder="Equipment"
-      name="equipment"
-      [outlined]="true">
+      [floatLabel]="true"
+      name="equipment">
 
       <mdc-menu class="exercise__equipment-menu">
         <mdc-list>
@@ -49,6 +49,7 @@
 
   <div class="exercise__sets">
     <h2 mdcSubtitle1>Sets</h2>
+    <mdc-list-divider class="exercise-card__divider"></mdc-list-divider>
 
     <div class="exercise__sets-container">
       <div *ngFor="let set of exercise.sets; index as i">
@@ -56,10 +57,10 @@
       </div>
     </div>
 
-  </div>
+    <div class="exercise__add-set">
+      <button mdcDialogButton raised class="exercise__add-set-button" type="button" (click)="onAddSetClick()">Add Set</button>
+    </div>
 
-  <div class="exercise__add-set">
-    <button mdcDialogButton outlined class="exercise__add-set-button" type="button" (click)="onAddSetClick()">Add Set</button>
   </div>
 
 </form>

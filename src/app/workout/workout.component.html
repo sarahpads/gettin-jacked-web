@@ -1,12 +1,8 @@
-<mdc-top-app-bar prominent [fixedAdjustElement]="content">
+<mdc-top-app-bar [fixedAdjustElement]="content">
   <app-header title="Workout"></app-header>
 </mdc-top-app-bar>
 
 <div mdcTopAppBarFixedAdjust #content class="workout">
-  <button mdc-fab mini class="workout__fab">
-    <mdc-icon>add</mdc-icon>
-  </button>
-
   <div *ngFor="let exercise of exercises">
     <app-exercise-card [exercise]="exercise"></app-exercise-card>
   </div>

@@ -11,13 +11,3 @@ $light-text-colors: map.get(material-variables.$text-colors, light);
   padding-bottom: 1rem;
   width: 100%;
 }
-
-.workout {
-  &__fab {
-    display: block;
-    margin-left: 1rem;
-    position: relative;
-    transform: translateY(-50%);
-    z-index: 4;
-  }
-}

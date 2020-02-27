@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SetComponent implements OnInit {
   @Input() public set;
+  @Input() public modifier = 'none';
 
   constructor() { }
 

@@ -32,7 +32,13 @@
     overflow: hidden;
   }
 
-  &__sets-container {
+  &__set {
+        &-index {
+      @include theme.prop(background-color, primary);
+    }
+  }
+
+  /*&__sets-container {
     padding: 12px;
   }
 
@@ -42,5 +48,5 @@
 
   &__set {
     min-width: 2rem;
-  }
+  }*/
 }
