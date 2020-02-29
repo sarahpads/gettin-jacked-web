@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { WorkoutComponent } from './workout.component';
 import { ExerciseComponent } from './exercise/exercise.component';
+import { SetComponent } from './set/set.component';
 // import { AuthGuard } from '../shared/guards/auth.guard';
 
 const routes: Routes = [
@@ -11,9 +12,10 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
     component: WorkoutComponent,
   },
+
   {
-    path: ':exercise',
-    component: ExerciseComponent
+    path: ':exercise/sets/:index',
+    component: SetComponent
   }
 ];
 

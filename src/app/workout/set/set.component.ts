@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./set.component.scss']
 })
 export class SetComponent implements OnInit {
-  @Input() public set;
-  @Input() public modifier = 'none';
+  public set = { index: 0, reps: 10, weight: 9, status: 'complete' };
+  public modifier = 'none';
 
   constructor() { }
 

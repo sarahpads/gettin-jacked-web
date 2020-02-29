@@ -1,62 +1,41 @@
-@use '@material/theme/variables' as material-variables;
-@use '@material/textfield/_index' as text-field;
+@use '@material/button';
+@use '@material/theme';
+@use '@material/textfield/_index' as textfield;
 
 .set {
-  display: flex;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem;
 
-  &__progress {
-    border-style: none;
-    display: flex;
-    flex-shrink: 0;
-    margin-top: 1rem;
-    position: relative;
-
-    &.-solid:before {
-      border-left-style: solid;
-    }
-
-    &.-dashed:before {
-      border-left-style: dashed;
-    }
-
-    &.-none:before {
-      border-style: none;
-    }
-
-    &:before {
-      content: '';
-      height: 100%;
-      border-left: 1px solid #{material-variables.$primary};
-      position: absolute;
-      left: 50%;
-      top: -100%;
-    }
-  }
-
-  &__progress-label {
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #{material-variables.$primary};
-    border-radius: 50%;
-    color: material-variables.$primary;
-    display: flex;
-    height: 2em;
-    justify-content: center;
-    width: 2em;
-    z-index: 1;
-
-    .-complete & {
-      background-color: material-variables.$primary;
-      color: #fff;
-    }
-  }
-
-  &__inputs-row {
-    display: flex;
+  &__header {
+    grid-column: span 2;
+    margin: 0;
   }
 
   &__input {
-    @include text-field.density(-4);
-    margin: 1rem 0 0 1rem;
+    &.-equipment {
+      // force select to take up 100% of its container
+      grid-column: span 2;
+    }
+
+    &.-variation {
+      grid-column: span 2;
+    }
+
+    &.-assisted {
+      @include textfield.density(-4);
+    }
+  }
+
+  &__equipment-select{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    &-button {
+      @include button.filled-accessible(theme.$primary);
+    }
   }
 }

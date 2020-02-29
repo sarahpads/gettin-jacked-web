@@ -15,18 +15,19 @@ import {
   MdcFabModule,
   MdcCardModule,
   MdcFormFieldModule,
-  MdcCheckboxModule
+  MdcCheckboxModule,
+  MdcRadioModule,
+  MdcSwitchModule
 } from '@angular-mdc/web';
 
 import { WorkoutRoutingModule } from './workout-routing.module';
 import { WorkoutComponent } from './workout.component';
 import { ExerciseComponent } from './exercise/exercise.component';
-import { ExerciseCardComponent } from './exercise-card/exercise-card.component';
 import { SetComponent } from './set/set.component';
 import { LayoutModule } from '../shared/layout/layout.module';
 
 @NgModule({
-  declarations: [WorkoutComponent, ExerciseComponent, SetComponent, ExerciseCardComponent],
+  declarations: [WorkoutComponent, ExerciseComponent, SetComponent],
   imports: [
     CommonModule,
     MdcChipsModule,
@@ -44,6 +45,8 @@ import { LayoutModule } from '../shared/layout/layout.module';
     MdcFabModule,
     MdcFormFieldModule,
     MdcCheckboxModule,
+    MdcRadioModule,
+    MdcSwitchModule,
     LayoutModule,
     WorkoutRoutingModule
   ]

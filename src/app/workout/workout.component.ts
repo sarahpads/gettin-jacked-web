@@ -17,12 +17,12 @@ export class WorkoutComponent implements OnInit {
       equipment: 'smith',
       status: 'in-progress',
       sets: [
-        { index: 0, reps: 10, weight: '9', status: 'complete' },
+        { index: 0, reps: 10, weight: '9', status: 'complete', borderStyle: 'dashed' },
         { index: 1, reps: 15, weight: '9', status: 'in-progress' },
         { index: 2, reps: 15, weight: '9', status: 'not-started' },
-        { index: 1, reps: 15, weight: '9', status: 'in-progress' },
-        { index: 1, reps: 15, weight: '9', status: 'in-progress' },
-        { index: 1, reps: 15, weight: '9', status: 'in-progress' }
+        { index: 1, reps: 15, weight: '9', status: 'not-started' },
+        { index: 1, reps: 15, weight: '9', status: 'not-started' },
+        { index: 1, reps: 15, weight: '9', status: 'not-started' }
       ]
     },
     {

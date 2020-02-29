@@ -1,72 +1,102 @@
-@use "sass:map";
-@use '@material/button';
 @use "@material/theme";
-@use '@material/shape';
-@use '@material/select/_index' as select;
-@use '@material/dialog/_index' as dialog;
-@use '@material/top-app-bar/_index' as app-bar;
-@use '@material/icon-button/_index' as icon-button;
 @use '@material/theme/color-palette' as material-color;
 @use '@material/theme/variables' as material-variables;
 
-$text-colors: map.get(material-variables.$text-colors, dark);
+.exercise-card {
+  margin: 1rem;
 
-:host {
-  @include theme.prop(background-color, primary);
-  display: flex;
-  min-height: 100vh;
-}
-
-// TODO: replace material-color values with material-variable theme colors
-.exercise {
   &__header {
-    @include app-bar.ink-color(map.get($text-colors, primary));
-    @include app-bar.fill-color(material-color.$grey-50);
-
-    &-button {
-      @include icon-button.ink-color(map.get($text-colors, secondary));
-    }
-  }
-
-  &__form {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-  }
-
-  &__details {
-    @include theme.prop(color, text-primary-on-dark);
-  }
-
-  &__sets {
-    @include shape.radius(20px 20px 0 0);
-    @include theme.prop(background-color, background);
-    flex: 1;
-  }
-
-  &__details,
-  &__sets {
     padding: 1rem;
   }
 
-  $color: map.get(theme.$property-values, text-primary-on-dark);
-  // force select to take up 100% of its container
-  &__equipment-select {
-    //@include select.ink-color($color);
-    //@include select.bottom-line-color($color);
-    @include select.container-fill-color(material-color.$deep-purple-a200);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  &__title {
+    margin: 0;
   }
 
-  &__equipment-menu {
-    width: 100%;
+  &__top {
+    display: flex;
+
+    &-menu {
+      margin-left: auto;
+    }
   }
 
-  &__add-set {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1rem;
+  &__target,
+  &__difficulty {
+    @include theme.prop(color, text-secondary-on-background);
   }
+
+  &__difficulty {
+    align-items: center;
+    display: flex;
+    padding: 0 1rem 1rem;
+
+    &-icon {
+      @include theme.prop(color, material-color.$green-400);
+      margin-right: 0.3rem;
+    }
+  }
+
+  &__animation {
+    overflow: hidden;
+  }
+
+  &__set {
+        &-index {
+      @include theme.prop(background-color, primary);
+    }
+  }
+
+  &__set {
+    position: relative;
+
+    &.-solid:before {
+      border-color: material-variables.$primary;
+      border-left-style: solid;
+    }
+
+    &.-dashed:before {
+      border-color: material-variables.$primary;
+      border-left-style: dashed;
+    }
+
+    &:before {
+      content: '';
+      height: 100%;
+      border-left: 1px solid transparent;
+      position: absolute;
+      left: 34px;
+      top: 50%;
+    }
+  }
+
+  &__progress-label {
+    align-items: center;
+    background-color: lightgrey;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    color: lightgrey;
+    display: flex;
+    height: 2em;
+    justify-content: center;
+    width: 2em;
+    z-index: 1;
+
+    .-complete & {
+      //background-color: material-variables.$primary;
+      //color: #fff;
+      background-color: #fff;
+      border-color: material-variables.$primary;
+      color: material-variables.$primary;
+    }
+
+    .-in-progress & {
+      background-color: #fff;
+      border-color: material-variables.$primary;
+      border-width: 2px;
+      color: material-variables.$primary;
+      font-size: 1rem;
+    }
+  }
+
 }

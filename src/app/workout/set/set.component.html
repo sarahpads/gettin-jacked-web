@@ -1,19 +1,64 @@
-<div class="set">
-  <div class="set__progress" [ngClass]="'-' + set.status + ' -' + modifier">
-    <span class="set__progress-label" mdcSubtitle1>{{ set.index + 1 }}</span>
-  </div>
+<mdc-top-app-bar [fixedAdjustElement]="content" class="set__header">
+  <mdc-top-app-bar-row>
+    <mdc-top-app-bar-section align="start" title="Edit Set">
+    </mdc-top-app-bar-section>
 
-  <div class="set__inputs">
-    <div class="set__inputs-row">
-      <mdc-text-field placeholder="Reps" class="set__input" outlined></mdc-text-field>
-      <mdc-text-field placeholder="Weight" class="set__input" outlined></mdc-text-field>
-    </div>
 
-    <div class="set__inputs-row" *ngIf="set.index == 0">
-      <mdc-form-field>
-        <mdc-checkbox touch></mdc-checkbox>
-        <label>assisted</label>
-      </mdc-form-field>
-    </div>
+    <mdc-top-app-bar-section align="end">
+      <button mdc-button class="set__header-button">
+        Done
+      </button>
+    </mdc-top-app-bar-section>
+
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
+
+
+<div mdcTopAppBarFixedAdjust #content>
+  <div class="set">
+    <h1 class="set__header" mdcSubtitle1>Row, Seated Cable</h1>
+
+    <mdc-form-field fluid class="set__input -equipment">
+      <mdc-select
+        class="set__equipment-select"
+        placeholder="Equipment"
+        [floatLabel]="true"
+        name="equipment">
+
+        <mdc-menu class="set__equipment-menu">
+          <mdc-list>
+            <mdc-list-item value="apple">Barbell</mdc-list-item>
+            <mdc-list-item value="orange">Dumbbell</mdc-list-item>
+            <mdc-list-item value="banana">Smith Machine</mdc-list-item>
+            <mdc-list-item value="mango">Plate</mdc-list-item>
+          </mdc-list>
+        </mdc-menu>
+      </mdc-select>
+    </mdc-form-field>
+
+    <mdc-text-field label="Reps" class="set__input -reps"></mdc-text-field>
+    <mdc-text-field label="Weight" class="set__input -weight">
+      <span mdcTextFieldIcon trailing>lbs</span>
+    </mdc-text-field>
+
+    <h2 mdcSubtitle2 class="set__header">Variations</h2>
+    <mdc-form-field class="set__input -variation">
+      <mdc-radio name="demo-radio-set"></mdc-radio>
+      <label>Radio 1</label>
+    </mdc-form-field>
+    <mdc-form-field class="set__input -variation">
+      <mdc-radio name="demo-radio-set"></mdc-radio>
+      <label>Radio 2</label>
+    </mdc-form-field>
+
+    <h2 mdcSubtitle2 class="set__header">Options</h2>
+    <mdc-form-field>
+      <mdc-checkbox touch></mdc-checkbox>
+      <label>assisted</label>
+    </mdc-form-field>
+
+    <mdc-text-field label="Weight" condensed class="set__input -assisted">
+      <span mdcTextFieldIcon trailing>lbs</span>
+    </mdc-text-field>
   </div>
 </div>
