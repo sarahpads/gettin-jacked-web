@@ -1,5 +1,9 @@
 <mdc-top-app-bar [fixedAdjustElement]="content">
-  <app-header title="Exercises"></app-header>
+  <app-header title="Exercises">
+    <div header-icons>
+      <mdc-icon mdcTopAppBarActionItem>search</mdc-icon>
+    </div>
+  </app-header>
 </mdc-top-app-bar>
 
 <div mdcTopAppBarFixedAdjust #content>
@@ -8,7 +12,27 @@
     avatar
     dense
     #list
-    [singleSelection]="true">
+    [singleSelection]="true"
+    (selectionChange)="onExerciseSelect($event)">
+
+
+    <div class="exercises__list-section">
+      <mdc-icon class="exercises__list-letter">star</mdc-icon>
+
+      <div class="exercises__list-items">
+        <ng-container *ngFor="let item of exercises | keyvalue">
+          <ng-container *ngFor="let exercise of item.value">
+            <mdc-list-item *ngIf="exercise.favourite">
+              <div mdcListItemGraphic>
+                <mdc-icon>fitness_center</mdc-icon>
+              </div>
+
+              {{ exercise.title }}
+            </mdc-list-item>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
 
     <div class="exercises__list-section" *ngFor="let item of exercises | keyvalue">
       <span class="exercises__list-letter">{{ item.key }}</span>

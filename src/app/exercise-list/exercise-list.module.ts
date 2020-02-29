@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
   MdcIconModule,
+  MdcIconButtonModule,
   MdcListModule,
-  MdcTopAppBarModule
+  MdcTopAppBarModule,
+  MdcSnackbarModule
 } from '@angular-mdc/web';
 
 import { ExerciseListRoutingModule } from './exercise-list-routing.module';
@@ -17,6 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     MdcIconModule,
     MdcListModule,
+    MdcIconButtonModule,
+    MdcSnackbarModule,
     MdcTopAppBarModule,
     SharedModule,
     ExerciseListRoutingModule

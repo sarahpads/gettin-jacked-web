@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exercise-list',
@@ -112,9 +113,14 @@ export class ExerciseListComponent implements OnInit {
     ]
   }
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  public onExerciseSelect(event) {
+    this.router.navigate(['./exercises', 1]);
+  }
 }
