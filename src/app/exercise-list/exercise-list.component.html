@@ -1,0 +1,27 @@
+<mdc-top-app-bar [fixedAdjustElement]="content">
+  <app-header title="Exercises"></app-header>
+</mdc-top-app-bar>
+
+<div mdcTopAppBarFixedAdjust #content>
+  <mdc-list
+    class="exercises__list"
+    avatar
+    dense
+    #list
+    [singleSelection]="true">
+
+    <div class="exercises__list-section" *ngFor="let item of exercises | keyvalue">
+      <span class="exercises__list-letter">{{ item.key }}</span>
+
+      <div class="exercises__list-items">
+        <mdc-list-item *ngFor="let exercise of item.value" class="exercises__list-item" [value]="exercise.title">
+          <div mdcListItemGraphic>
+            <mdc-icon>fitness_center</mdc-icon>
+          </div>
+
+          {{ exercise.title }}
+        </mdc-list-item>
+      </div>
+    </div>
+  </mdc-list>
+</div>

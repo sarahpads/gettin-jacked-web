@@ -18,6 +18,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'exercises',
+    loadChildren: () => import('./exercise-list/exercise-list.module').then((m) => m.ExerciseListModule)
+  },
+
+  {
     path: '',
     loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
   }

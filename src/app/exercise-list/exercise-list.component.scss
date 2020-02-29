@@ -1,0 +1,30 @@
+@use '@material/theme';
+@use '@material/list/_index' as list;
+@use '@material/theme/color-palette' as material-color;
+
+.exercises {
+  &__list {
+    @include list.item-graphic-fill-color(material-color.$grey-500);
+    @include list.item-graphic-ink-color(material-color.$grey-100);
+
+    &-section {
+      display: flex;
+    }
+
+    &-letter {
+      @include theme.prop(color, primary);
+      align-self: flex-start;
+      align-items: center;
+      display: flex;
+      font-size: 1.5rem;
+      height: 60px;
+      margin: 0 1.5rem;
+      position: sticky;
+      top: 0;
+    }
+
+    &-items {
+      flex: 1;
+    }
+  }
+}
