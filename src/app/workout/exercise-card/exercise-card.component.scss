@@ -42,7 +42,7 @@
   }
 
   &__set {
-        &-index {
+    &-index {
       @include theme.prop(background-color, primary);
     }
   }
@@ -63,7 +63,7 @@
     &:before {
       content: '';
       height: 100%;
-      border-left: 1px solid transparent;
+      border-left: 2px solid transparent;
       position: absolute;
       left: 34px;
       top: 50%;
@@ -71,11 +71,11 @@
   }
 
   &__progress-label {
+    @include theme.prop(background-color, material-color.$deep-purple-50);
     align-items: center;
-    background-color: lightgrey;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     border-radius: 50%;
-    color: lightgrey;
+    color: transparent;
     display: flex;
     height: 2em;
     justify-content: center;
@@ -83,19 +83,18 @@
     z-index: 1;
 
     .-complete & {
-      //background-color: material-variables.$primary;
-      //color: #fff;
-      background-color: #fff;
+      background-color: material-variables.$primary;
+      color: #fff;
       border-color: material-variables.$primary;
-      color: material-variables.$primary;
+      font-weight: 600;
+     // color: material-variables.$primary;
     }
 
     .-in-progress & {
       background-color: #fff;
       border-color: material-variables.$primary;
-      border-width: 2px;
-      color: material-variables.$primary;
-      font-size: 1rem;
+      border-style: dashed;
+      color: #fff;
     }
   }
 

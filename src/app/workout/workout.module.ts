@@ -22,12 +22,13 @@ import {
 
 import { WorkoutRoutingModule } from './workout-routing.module';
 import { WorkoutComponent } from './workout.component';
-import { ExerciseComponent } from './exercise/exercise.component';
 import { SetComponent } from './set/set.component';
 import { LayoutModule } from '../shared/layout/layout.module';
+import { ExerciseDifficultyComponent } from './exercise-difficulty/exercise-difficulty.component';
+import { ExerciseCardComponent } from './exercise-card/exercise-card.component';
 
 @NgModule({
-  declarations: [WorkoutComponent, ExerciseComponent, SetComponent],
+  declarations: [WorkoutComponent, SetComponent, ExerciseDifficultyComponent, ExerciseCardComponent],
   imports: [
     CommonModule,
     MdcChipsModule,

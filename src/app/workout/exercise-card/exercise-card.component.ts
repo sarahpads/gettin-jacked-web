@@ -1,15 +1,15 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { exerciseCardAnimations } from './exercise-animations';
+import { exerciseCardAnimations } from './exercise-card-animations';
 
 @Component({
-  selector: 'app-exercise',
-  templateUrl: './exercise.component.html',
-  styleUrls: ['./exercise.component.scss'],
+  selector: 'app-exercise-card',
+  templateUrl: './exercise-card.component.html',
+  styleUrls: ['./exercise-card.component.scss'],
   animations: [exerciseCardAnimations.bodyExpansion]
 })
-export class ExerciseComponent implements OnInit {
+export class ExerciseCardComponent implements OnInit {
   @Input() public exercise;
   @ViewChild('cardMenu') public menu;
 
