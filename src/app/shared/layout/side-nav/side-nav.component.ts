@@ -22,12 +22,12 @@ export class SideNavComponent implements OnInit {
     },
     {
       label: 'Goals',
-      icon: 'star',
+      icon: 'flag',
       link: '/goals'
     },
     {
       label: 'Exercises',
-      icon: 'style',
+      icon: 'folder',
       link: '/exercises'
     }
   ]
@@ -43,5 +43,4 @@ export class SideNavComponent implements OnInit {
   public onOpenChange(isMenuOpen) {
     this.layoutService.setMenu(isMenuOpen);
   }
-
 }

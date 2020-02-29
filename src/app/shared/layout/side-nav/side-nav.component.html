@@ -1,8 +1,7 @@
 <mdc-drawer
   drawer="modal"
   [open]="isOpen | async"
-  (openedChange)="onOpenChange($event)"
->
+  (openedChange)="onOpenChange($event)">
   <mdc-drawer-header title="Drawer Title" subtitle="Subtitle"></mdc-drawer-header>
 
   <mdc-drawer-content>
@@ -13,8 +12,8 @@
         #rla="routerLinkActive"
         *ngFor="let item of items"
         [routerLink]="item.link"
-        [activated]="rla.isActive"
-      >
+        [routerLinkActiveOptions]="{exact: true}"
+        [activated]="rla.isActive">
         <mdc-icon mdcListItemGraphic>{{ item.icon }}</mdc-icon>
         {{ item.label }}
       </a>
