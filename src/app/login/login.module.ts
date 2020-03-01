@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
+import { MdcButtonModule } from '@angular-mdc/web';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
@@ -9,8 +9,8 @@ import { LoginComponent } from './login.component';
   declarations: [LoginComponent],
   imports: [
     CommonModule,
-    LoginRoutingModule,
-    MatButtonModule
+    MdcButtonModule,
+    LoginRoutingModule
   ]
 })
 export class LoginModule { }

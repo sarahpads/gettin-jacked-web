@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +6,9 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public data;
   public isMenuOpen = false;
 
-  constructor(private oidcSecurityService: OidcSecurityService) { }
+  constructor() { }
 
-  public ngOnInit() {
-    this.data = this.oidcSecurityService.getUserData();
-  }
+  public ngOnInit() {}
 }
