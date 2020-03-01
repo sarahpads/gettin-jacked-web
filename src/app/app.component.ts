@@ -8,6 +8,7 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
 })
 export class AppComponent {
   public data;
+  public isMenuOpen = false;
 
   constructor(private oidcSecurityService: OidcSecurityService) { }
 

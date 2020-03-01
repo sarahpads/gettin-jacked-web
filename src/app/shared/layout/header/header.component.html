@@ -1,0 +1,11 @@
+<mdc-top-app-bar-row>
+  <mdc-top-app-bar-section align="start" [title]="title">
+    <button mdcTopAppBarNavIcon (click)="onMenuClick()">
+      <mdc-icon>menu</mdc-icon>
+    </button>
+  </mdc-top-app-bar-section>
+
+  <mdc-top-app-bar-section align="end">
+    <ng-content select="[header-icons]"></ng-content>
+  </mdc-top-app-bar-section>
+</mdc-top-app-bar-row>
