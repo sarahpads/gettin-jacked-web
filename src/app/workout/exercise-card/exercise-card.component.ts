@@ -13,7 +13,7 @@ export class ExerciseCardComponent implements OnInit {
   @Input() public exercise;
   @ViewChild('cardMenu') public menu;
 
-  public isExpanded = true;
+  public isExpanded = false;
 
   constructor(
     private router: Router
