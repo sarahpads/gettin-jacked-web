@@ -21,20 +21,12 @@
     }
   }
 
-  &__target,
-  &__difficulty {
+  &__target {
     @include theme.prop(color, text-secondary-on-background);
   }
 
-  &__difficulty {
-    align-items: center;
-    display: flex;
-    padding: 0 1rem 1rem;
-
-    &-icon {
-      @include theme.prop(color, material-color.$green-400);
-      margin-right: 0.3rem;
-    }
+  &__notes {
+    margin-bottom: 0;
   }
 
   &__animation {
@@ -67,6 +59,20 @@
       position: absolute;
       left: 34px;
       top: 50%;
+    }
+
+    &-content {
+      align-items: center;
+      display: flex;
+      flex: 1;
+    }
+
+    &-flag {
+      margin-left: auto;
+    }
+
+    &-icon {
+      margin-left: 0.5rem;
     }
   }
 

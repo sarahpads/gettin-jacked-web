@@ -23,12 +23,13 @@ import {
 import { WorkoutRoutingModule } from './workout-routing.module';
 import { WorkoutComponent } from './workout.component';
 import { SetComponent } from './set/set.component';
-import { LayoutModule } from '../shared/layout/layout.module';
+import { SharedModule } from '../shared/shared.module';
 import { ExerciseDifficultyComponent } from './exercise-difficulty/exercise-difficulty.component';
 import { ExerciseCardComponent } from './exercise-card/exercise-card.component';
+import { SetFlagComponent } from './set-flag/set-flag.component';
 
 @NgModule({
-  declarations: [WorkoutComponent, SetComponent, ExerciseDifficultyComponent, ExerciseCardComponent],
+  declarations: [WorkoutComponent, SetComponent, ExerciseDifficultyComponent, ExerciseCardComponent, SetFlagComponent],
   imports: [
     CommonModule,
     MdcChipsModule,
@@ -48,7 +49,7 @@ import { ExerciseCardComponent } from './exercise-card/exercise-card.component';
     MdcCheckboxModule,
     MdcRadioModule,
     MdcSwitchModule,
-    LayoutModule,
+    SharedModule,
     WorkoutRoutingModule
   ]
 })

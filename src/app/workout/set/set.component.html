@@ -1,11 +1,14 @@
 <mdc-top-app-bar [fixedAdjustElement]="content" class="set__header">
   <mdc-top-app-bar-row>
     <mdc-top-app-bar-section align="start" title="Edit Set">
+      <a [routerLink]="['../../../']" mdcTopAppBarNavIcon>
+        <mdc-icon>close</mdc-icon>
+      </a>
     </mdc-top-app-bar-section>
 
 
     <mdc-top-app-bar-section align="end">
-      <button mdc-button class="set__header-button">
+      <button mdc-button class="set__header-button" (click)="onDoneClick()">
         Done
       </button>
     </mdc-top-app-bar-section>
@@ -38,7 +41,7 @@
 
     <mdc-text-field label="Reps" class="set__input -reps"></mdc-text-field>
     <mdc-text-field label="Weight" class="set__input -weight">
-      <span mdcTextFieldIcon trailing>lbs</span>
+      <span mdcTextFieldIcon trailing>{{ '' | unit }}</span>
     </mdc-text-field>
 
     <h2 mdcSubtitle2 class="set__header">Variations</h2>

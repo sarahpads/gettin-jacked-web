@@ -1,0 +1,30 @@
+@use "@material/theme";
+@use '@material/theme/color-palette' as material-color;
+
+.exercise-difficulty {
+  @include theme.prop(color, text-secondary-on-background);
+  align-items: center;
+  display: flex;
+  padding: 0 1rem 1rem;
+
+  &__icon {
+    border-radius: 50%;
+    color: #fff;
+    height: 20px;
+    margin-right: 0.5rem;
+    text-align: center;
+    width: 20px;
+
+    .-easier & {
+      @include theme.prop(background-color, material-color.$red-900);
+    }
+
+    .-harder & {
+      @include theme.prop(background-color, material-color.$green-400);
+    }
+
+    .-same & {
+      @include theme.prop(background-color, material-color.$indigo-300);
+    }
+  }
+}
