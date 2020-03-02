@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public isMenuOpen = false;
 
-  constructor() { }
+  constructor(
+    public auth: AngularFireAuth
+  ) { }
 
-  public ngOnInit() {}
+  public ngOnInit() {
+    this.auth.user.subscribe((value) => {
+      console.log(value)
+    })
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +8,17 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  public provider;
 
-  constructor(private oidcSecurityService: OidcSecurityService) { }
+  constructor(
+    private auth: AngularFireAuth
+  ) { }
 
   ngOnInit(): void {
+    this.provider = new auth.GoogleAuthProvider()
   }
 
   public login() {
-    this.oidcSecurityService.authorize();
+    this.auth.auth.signInWithRedirect(this.provider)
   }
 }
