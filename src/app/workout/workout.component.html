@@ -1,3 +1,6 @@
-<mdc-top-app-bar prominent>
-  <app-header title="Workout"></app-header>
-</mdc-top-app-bar>
+Workout
+<data *ngIf="data | async as data">
+  <div *ngFor="let exercise of data">
+    {{ exercise | json }}
+  </div>
+</data>

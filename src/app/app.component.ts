@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +7,9 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public data;
-  public isMenuOpen = false;
+  constructor(
+    public auth: AngularFireAuth
+  ) { }
 
-  constructor(private oidcSecurityService: OidcSecurityService) { }
-
-  public ngOnInit() {
-    this.data = this.oidcSecurityService.getUserData();
-  }
+  public ngOnInit() {}
 }
