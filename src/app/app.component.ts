@@ -7,15 +7,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public isMenuOpen = false;
-
   constructor(
     public auth: AngularFireAuth
   ) { }
 
-  public ngOnInit() {
-    this.auth.user.subscribe((value) => {
-      console.log(value)
-    })
-  }
+  public ngOnInit() {}
 }
