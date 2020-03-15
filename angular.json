@@ -32,7 +32,9 @@
               "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["node_modules/"]
+              "includePaths": [
+                "node_modules/"
+              ]
             },
             "scripts": []
           },
@@ -133,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "gettin-jacked"
+  "defaultProject": "gettin-jacked",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

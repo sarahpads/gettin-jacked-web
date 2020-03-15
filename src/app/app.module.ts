@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
