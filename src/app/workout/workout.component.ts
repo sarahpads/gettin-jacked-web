@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-workout',
@@ -56,10 +57,14 @@ export class WorkoutComponent implements OnInit {
         { index: 2, reps: 0, weight: 9, status: 'not-started' }
       ]
     }
-  ]
+  ];
+  public data;
 
-  constructor() { }
+  constructor(
+    private store: AngularFirestore
+  ) { }
 
   ngOnInit(): void {
+    this.data = this.store.collection('exercises').valueChanges();
   }
 }

@@ -25,6 +25,11 @@
     @include theme.prop(color, text-secondary-on-background);
   }
 
+  &__difficulty {
+    display: block;
+    margin-top: 1rem;
+  }
+
   &__notes {
     margin-bottom: 0;
   }

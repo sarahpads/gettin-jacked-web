@@ -7,3 +7,9 @@
     <app-exercise-card [exercise]="exercise"></app-exercise-card>
   </div>
 </div>
+
+<data *ngIf="data | async as data">
+  <div *ngFor="let exercise of data">
+    {{ exercise | json }}
+  </div>
+</data>

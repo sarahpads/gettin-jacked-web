@@ -6,6 +6,8 @@
         {{ exercise.targetWeight | unit: exercise.equipment }} • {{ exercise.sets.length }} sets x {{ exercise.targetReps }} reps
       </span>
 
+      <app-exercise-difficulty class="exercise-card__difficulty" [difficulty]="exercise.difficulty"></app-exercise-difficulty>
+
       <p *ngIf="exercise.notes" class="exercise-card__notes" mdcBody2>{{ exercise.notes }}</p>
     </div>
 
@@ -24,8 +26,6 @@
       </mdc-menu>
     </div>
   </div>
-
-  <app-exercise-difficulty [difficulty]="exercise.difficulty"></app-exercise-difficulty>
 
   <mdc-list-divider class="exercise-card__divider"></mdc-list-divider>
 

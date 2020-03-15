@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 import { WorkoutComponent } from './workout.component';
 import { SetComponent } from './set/set.component';
-// import { AuthGuard } from '../shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    // canActivate: [AuthGuard],
-    component: WorkoutComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: () => redirectUnauthorizedTo(['login'])
+    },
+    component: WorkoutComponent
   },
 
   {
